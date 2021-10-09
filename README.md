@@ -82,6 +82,9 @@ to apply the better and faster **asynchronous** feature of the **powerful** [ESP
 
 1. **Portenta_H7 boards** such as Portenta_H7 Rev2 ABX00042, etc., using [**ArduinoCore-mbed mbed_portenta** core](https://github.com/arduino/ArduinoCore-mbed) using `Vision-shield Ethernet`
 
+<p align="center">
+    <img src="https://github.com/khoih-prog/Portenta_H7_AsyncUDP/blob/main/pics/Portenta_Vision.jpg">
+</p>
 
 ---
 ---
