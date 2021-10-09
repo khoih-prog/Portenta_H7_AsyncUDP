@@ -115,7 +115,7 @@ The best way is to use `Arduino Library Manager`. Search for `Portenta_H7_AsyncU
 
 1. Install [VS Code](https://code.visualstudio.com/)
 2. Install [PlatformIO](https://platformio.org/platformio-ide)
-3. Install [**Portenta_H7_AsyncUDP** library](https://platformio.org/lib/show/11236/Portenta_H7_AsyncUDP) by using [Library Manager](https://platformio.org/lib/show/11236/Portenta_H7_AsyncUDP/installation). Search for Portenta_H7_AsyncUDP in [Platform.io Author's Libraries](https://platformio.org/lib/search?query=author:%22Khoi%20Hoang%22)
+3. Install [**Portenta_H7_AsyncUDP** library](https://platformio.org/lib/show/xxxxx/Portenta_H7_AsyncUDP) by using [Library Manager](https://platformio.org/lib/show/xxxxx/Portenta_H7_AsyncUDP/installation). Search for Portenta_H7_AsyncUDP in [Platform.io Author's Libraries](https://platformio.org/lib/search?query=author:%22Khoi%20Hoang%22)
 4. Use included [platformio.ini](platformio/platformio.ini) file from examples to ensure that all dependent libraries will installed automatically. Please visit documentation for the other options and examples at [Project Configuration File](https://docs.platformio.org/page/projectconf.html)
 
 ---
