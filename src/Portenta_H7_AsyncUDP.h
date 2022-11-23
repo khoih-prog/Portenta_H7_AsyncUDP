@@ -1,24 +1,24 @@
 /****************************************************************************************************************************
   Portenta_H7_AsyncUDP.h
-  
+
   For Portenta_H7 (STM32H7) with Vision-Shield Ethernet
-  
+
   Portenta_H7_AsyncWebServer is a library for the Portenta_H7 with with Vision-Shield Ethernet
-  
+
   Based on and modified from AsyncTCP (https://github.com/me-no-dev/ESPAsyncUDP)
   Built by Khoi Hoang https://github.com/khoih-prog/Portenta_H7_AsyncUDP
-  
-  This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License 
+
+  This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
   as published bythe Free Software Foundation, either version 3 of the License, or (at your option) any later version.
   This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
   You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
- 
+
   Version: 1.0.0
-  
+
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
-  1.0.0   K Hoang      09/10/2021 Initial coding for Portenta_H7 (STM32H7) with Vision-Shield Ethernet                     
+  1.0.0   K Hoang      09/10/2021 Initial coding for Portenta_H7 (STM32H7) with Vision-Shield Ethernet
  *****************************************************************************************************************************/
 
 #pragma once
@@ -43,7 +43,7 @@
 #else
 
   #error For Portenta_H7 only
-    
+
 #endif
 
 #if defined(SHIELD_TYPE)
@@ -112,18 +112,18 @@ class AsyncUDPMessage : public Print
     uint8_t *_buffer;
     size_t _index;
     size_t _size;
-    
+
   public:
     AsyncUDPMessage(size_t size = TCP_MSS /*1460*/);
     virtual ~AsyncUDPMessage();
-    
+
     size_t write(const uint8_t *data, size_t len);
     size_t write(uint8_t data);
     size_t space();
     uint8_t * data();
     size_t length();
     void flush();
-    
+
     operator bool()
     {
       return _buffer != NULL;
@@ -142,9 +142,10 @@ class AsyncUDPPacket : public Print
     uint16_t _remotePort;
     uint8_t *_data;
     size_t _len;
-    
+
   public:
-    AsyncUDPPacket(AsyncUDP *udp, ip_addr_t *localIp, uint16_t localPort, ip_addr_t *remoteIp, uint16_t remotePort, uint8_t *data, size_t len);
+    AsyncUDPPacket(AsyncUDP *udp, ip_addr_t *localIp, uint16_t localPort, ip_addr_t *remoteIp, uint16_t remotePort,
+                   uint8_t *data, size_t len);
     virtual ~AsyncUDPPacket();
 
     uint8_t * data();

@@ -29,8 +29,10 @@
       "tests"
     ]
   },
+  "license": "LGPL-3.0",
   "frameworks": "*",
   "platforms": "mbed_portenta",
   "examples": "examples/*/*/*.ino",
-  "license": "LGPL-3.0"
+  "headers": ["Portenta_H7_AsyncUDP.h"]
+  
 }

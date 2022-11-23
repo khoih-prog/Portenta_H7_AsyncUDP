@@ -1,14 +1,14 @@
 /****************************************************************************************************************************
   defines.h
-  
+
   For Portenta_H7 (STM32H7) with Vision-Shield Ethernet
-  
+
   Portenta_H7_AsyncWebServer is a library for the Portenta_H7 with with Vision-Shield Ethernet
-  
+
   Based on and modified from AsyncTCP (https://github.com/me-no-dev/ESPAsyncUDP)
   Built by Khoi Hoang https://github.com/khoih-prog/Portenta_H7_AsyncUDP
-  
-  This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License 
+
+  This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
   as published bythe Free Software Foundation, either version 3 of the License, or (at your option) any later version.
   This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.

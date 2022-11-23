@@ -1,24 +1,24 @@
 /****************************************************************************************************************************
   AsyncUdpNTPClient.ino
-  
+
   For Portenta_H7 (STM32H7) with Vision-Shield Ethernet
-  
+
   Portenta_H7_AsyncWebServer is a library for the Portenta_H7 with with Vision-Shield Ethernet
-  
+
   Based on and modified from AsyncTCP (https://github.com/me-no-dev/ESPAsyncUDP)
   Built by Khoi Hoang https://github.com/khoih-prog/Portenta_H7_AsyncUDP
-  
-  This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License 
+
+  This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
   as published bythe Free Software Foundation, either version 3 of the License, or (at your option) any later version.
   This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
   You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
- 
+
   Version: 1.0.0
-  
+
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
-  1.0.0   K Hoang      09/10/2021 Initial coding for Portenta_H7 (STM32H7) with Vision-Shield Ethernet   
+  1.0.0   K Hoang      09/10/2021 Initial coding for Portenta_H7 (STM32H7) with Vision-Shield Ethernet
  *****************************************************************************************************************************/
 
 #include "defines.h"
@@ -55,7 +55,7 @@ void createNTPpacket()
   packetBuffer[1]   = 0;     // Stratum, or type of clock
   packetBuffer[2]   = 6;     // Polling Interval
   packetBuffer[3]   = 0xEC;  // Peer Clock Precision
-  
+
   // 8 bytes of zero for Root Delay & Root Dispersion
   packetBuffer[12]  = 49;
   packetBuffer[13]  = 0x4E;
@@ -67,7 +67,7 @@ void parsePacket(AsyncUDPPacket packet)
 {
   struct tm  ts;
   char       buf[80];
-  
+
   memcpy(packetBuffer, packet.data(), sizeof(packetBuffer));
 
   Serial.print("Received UDP Packet Type: ");
@@ -90,20 +90,20 @@ void parsePacket(AsyncUDPPacket packet)
   // combine the four bytes (two words) into a long integer
   // this is NTP time (seconds since Jan 1 1900):
   unsigned long secsSince1900 = highWord << 16 | lowWord;
-  
+
   Serial.print(F("Seconds since Jan 1 1900 = "));
   Serial.println(secsSince1900);
 
   // now convert NTP time into )everyday time:
   Serial.print(F("Epoch/Unix time = "));
-  
+
   // Unix time starts on Jan 1 1970. In seconds, that's 2208988800:
   const unsigned long seventyYears = 2208988800UL;
-  
+
   // subtract seventy years:
   unsigned long epoch = secsSince1900 - seventyYears;
   time_t epoch_t = epoch;   //secsSince1900 - seventyYears;
- 
+
   // print Unix time:
   Serial.println(epoch);
 
@@ -120,7 +120,7 @@ void sendNTPPacket()
   createNTPpacket();
 
   Serial.println("Sending UDP Packet");
-  
+
   //Send unicast
   Udp.write(packetBuffer, sizeof(packetBuffer));
 
@@ -130,10 +130,13 @@ void sendNTPPacket()
 void setup()
 {
   Serial.begin(115200);
+
   while (!Serial);
 
-  Serial.print("\nStart AsyncUdpNTPClient on "); Serial.print(BOARD_NAME);
-  Serial.print(" with "); Serial.println(SHIELD_TYPE);
+  Serial.print("\nStart AsyncUdpNTPClient on ");
+  Serial.print(BOARD_NAME);
+  Serial.print(" with ");
+  Serial.println(SHIELD_TYPE);
   Serial.println(PORTENTA_H7_ASYNC_UDP_VERSION);
 
   ///////////////////////////////////
